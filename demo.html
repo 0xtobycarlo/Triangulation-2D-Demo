@@ -2,13 +2,124 @@
 <html>
   <head>
     <title>Triangulation of 2D Points</title>
-    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="demo.css" />
   </head>
   <body>
     <h2>Triangulation of 2D Points Demo</h2>
+    <h5>-=+=-</h5>
+
+    <section class="intro">
+      <h3>Introduction</h3>
+      <p>
+        In Mathematics and Computational Geometry, a Delaunay triangulation
+        (also known as a Delone triangulation) for a given set P of discrete
+        points in a general position is a triangulation DT(P) such that no point
+        in P is inside the circumcircle of any triangle in DT(P). Delaunay
+        triangulations maximise the minimum angle of all the angles of the
+        triangles in the triangulation; they tend to avoid sliver triangles. The
+        triangulation is named after Boris Delaunay for his work on this topic
+        from 1934.
+      </p>
+      <p>
+        For a set of points on the same line there is no Delaunay triangulation
+        (the notion of triangulation is degenerate for this case). For four or
+        more points on the same circle (e.g., the vertices of a rectangle) the
+        Delaunay triangulation is not unique: each of the two possible
+        triangulations that split the quadrangle into two triangles satisfies
+        the "Delaunay condition", i.e., the requirement that the circumcircles
+        of all triangles have empty interiors.
+      </p>
+      <p>
+        By considering circumscribed spheres, the notion of Delaunay
+        triangulation extends to three and higher dimensions. Generalisations
+        are possible to metrics other than Euclidean distance. However, in these
+        cases a Delaunay triangulation is not guaranteed to exist or be unique.
+      </p>
+    </section>
+
     <canvas id="canvas"></canvas>
 
     <script src="https://unpkg.com/delaunator@5.0.0/delaunator.min.js"></script>
     <script src="demo.js"></script>
+
+    <section class="properties">
+      <h3>Properties</h3>
+      <p>Let n be the number of points and d the number of dimensions.</p>
+      <ul>
+        <p>
+          <li>
+            The union of all simplices in the triangulation is the convex hull
+            of the points.
+          </li>
+        </p>
+        <p>
+          <li>The Delaunay triangulation contains O(n^⌈d / 2⌉) simplices.</li>
+        </p>
+        <p>
+          <li>
+            In the plane (d = 2), if there are b vertices on the convex hull,
+            then any triangulation of the points has at most 2n - 2 - b
+            triangles, plus one exterior face (Euler characteristic).
+          </li>
+        </p>
+        <p>
+          <li>
+            If points are distributed according to a Poisson process in the
+            plane with constant intensity, then each vertex has on average six
+            surrounding triangles. More generally for the same process in d
+            dimensions the average number of neighbours is a constant depending
+            only on d.
+          </li>
+        </p>
+        <p>
+          <li>
+            In the plane, the Delaunay triangulation maximises the minimum
+            angle. Compared to any other triangulation of the points, the
+            smallest angle in the Delaunay triangulation is at least as large as
+            the smallest angle in any other. However, the Delaunay triangulation
+            does not necessarily minimise the maximum angle. The Delaunay
+            triangulation also does not necessarily minimise the length of the
+            edges.
+          </li>
+        </p>
+        <p>
+          <li>
+            A circle circumscribing any Delaunay triangle does not contain any
+            other input points in its interior.
+          </li>
+        </p>
+        <p>
+          <li>
+            If a circle passing through two of the input points doesn't contain
+            any other input points in its interior, then the segment connecting
+            the two points is an edge of a Delaunay triangulation of the given
+            points.
+          </li>
+        </p>
+        <p>
+          <li>
+            Each triangle of the Delaunay triangulation of a set of points in
+            d-dimensional spaces corresponds to a facet of convex hull of the
+            projection of the points onto a (d + 1)-dimensional paraboloid, and
+            vice versa.
+          </li>
+        </p>
+        <p>
+          <li>
+            The closest neighbour b to any point p is on an edge bp in the
+            Delaunay triangulation since the nearest neighbour graph is a
+            subgraph of the Delaunay triangulation.
+          </li>
+        </p>
+        <p>
+          <li>
+            The Delaunay triangulation is a geometric spanner: In the plane (d =
+            2), the shortest path between two vertices, along Delaunay edges, is
+            known to be no longer than 1.998 times the Euclidean distance
+            between them.
+          </li>
+        </p>
+      </ul>
+    </section>
   </body>
 </html>
